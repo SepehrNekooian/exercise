@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::before, *::after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            width: 400px;
+            margin: 100px auto;
+            >li{
+                height: 40px;
+                border: 1px solid black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+</body>
+<script>
+    const list = document.querySelector('#list')
+    const li = document.querySelectorAll('#list>li')
+
+
+    list.addEventListener('mouseenter', ()=>{
+        li[0].innerHTML='mouseenter'
+    })
+
+    list.addEventListener('mouseleave', ()=>{
+        li[1].innerHTML='mouseleave'
+    })
+
+    list.addEventListener('mouseover', ()=>{
+        li[2].innerHTML='mouseover'
+    })
+
+    list.addEventListener('mouseout', ()=>{
+        li[3].innerHTML='mouseout'
+    })
+
+    list.addEventListener('click', ()=>{
+        li[4].innerHTML='click'
+    })
+
+    list.addEventListener('dblclick', ()=>{
+        li[5].innerHTML='dblclick'
+    })
+
+    list.addEventListener('contextmenu', ()=>{
+        li[6].innerHTML='contextmenu'
+    })
+
+    list.addEventListener('mousedown', ()=>{
+        li[7].innerHTML='mousedown'
+    })
+
+    list.addEventListener('mouseup', ()=>{
+        li[8].innerHTML='mouseup'
+    })
+
+    let i = 0
+
+    list.addEventListener('mousemove', ()=>{
+        li[9].innerHTML='mousemove'
+        console.log('heydasri', i++);
+    })
+
+     list.addEventListener('mousedown', (e)=>{
+        console.log(e);
+        if(e.button==0){
+            li[10].innerHTML='left click'
+        }
+        else if(e.button==1){
+            li[10].innerHTML='wheel click'
+        }
+        else{
+            // num 2
+            li[10].innerHTML='right click'
+        }
+    })
+
+    
+</script>
+</html>

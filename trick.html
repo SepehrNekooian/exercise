@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *,*::before, *::after{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    figure{
+        width: 500px;
+        height: 400px;
+        margin: 100px auto;
+        >img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+</style>
+<body>
+
+    <figure>
+        <img src="img/5.png" alt="">
+    </figure>
+    
+</body>
+<script>
+    const fig = document.querySelector('figure')
+    fig.addEventListener('mousemove', (e)=>{
+
+        // console.log(e);
+
+        // let x = e.clientX
+        // let y = e.clientY
+        // let x = e.layerX
+        // let y = e.layerY
+        let wFig = (fig.clientWidth/20)/2
+        let hFig = (fig.clientHeight/20)/2
+        let x = ((e.offsetX)/20)-wFig
+        let y = ((e.offsetY)/20)-hFig
+        // let y = e.offsetY
+
+        console.log(x + ' - ' + y);
+        e.target.style.transform = 'perspective(1000px) rotateY('+x+'deg) rotateY('+y+'deg)';
+
+        e.target.style.boxShadow = x + 'px ' +y+ 'px 100px green'
+
+    })
+</script>
+</html>
